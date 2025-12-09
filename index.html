@@ -12,10 +12,9 @@
         }
 
         body {
-            background: black url("images/background.png") repeat-y;
-            background-size: 100% auto;
+            background: black;
             color: white;
-            padding-top: 80px;
+            padding-top: px;
         }
 
         ul {
@@ -51,12 +50,67 @@
             background-color: rgba(17, 17, 17, 0.5);
             color: rgb(185, 11, 11);
         }
+
+        .center-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -50px;
+            width: 20px;
+            height: 1160vh;
+            background: linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 800px,
+                rgb(185, 11, 11) 800px,
+                rgb(185, 11, 11) 100%
+            );
+            z-index: 1;
+        }
+
+        /* Short line: starts at top and only goes down 50px */
+        .center-line-short {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            width: 20px;
+            height: 200px;
+            background: rgb(185, 11, 11);
+            z-index: 1;
+        }
+
+        /* Main non-repeating top background */
+        .bg-main {
+            /* Use an <img> inside .bg-main so the image keeps its natural aspect ratio.
+               The image is block-level and will sit flush with the repeating section below. */
+            width: 100%;
+        }
+
+        .bg-main img {
+            display: block;
+            width: 100%;
+            height: auto; /* preserve aspect ratio */
+        }
+
+        /* Repeating scroll background placed directly below .bg-main */
+        .bg-scroll {
+            background-image: url("images/background scroll.png");
+            background-repeat: repeat-y;
+            background-position: center top;
+            background-size: 100% auto;
+            width: 100%;
+            min-height: 1077vh;
+        }
     </style>
     <link rel="icon" href="/images/autumn.png" type="image/png">
 </head>
 
 <body>
     <!-- <img src="images\cooltext497751608755723.gif">   -->
+
+    <div class="center-line"></div>
+    <div class="center-line-short"></div>
 
     <ul>
         <li><a href="index.html">Aubrey's Guide</a></li>
@@ -72,7 +126,8 @@
  <!-- or you can lowkey just chatgpt like "how do i add a backgrodung image also its my first time 
   doing web devel help pwease" -->
 
-    <div style="height: 500vh;"></div>
+    <div class="bg-main"><img src="images/background.png" alt="background"></div>
+    <div class="bg-scroll"></div>
 
     <!-- <p>hi gang this website is under construction (trust)</p>
     <p>aslkdfjlkasjdf</p>
